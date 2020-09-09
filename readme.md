@@ -1,4 +1,4 @@
-Tarjan Full Stack Intor!
+Tarjan Full Stack Intro!
 ===
 
 - [x] npm init, get init, usuals
@@ -9,9 +9,27 @@ Tarjan Full Stack Intor!
 
 - [x] build out our interace for adding a song and viewing songs
 - [x] get handshales working for GET and POST routes
-- [] 1st make GET route work (1st server side db query)
+- [x] 1st make GET route work (1st server side db query)
 
 - get user inputs working
 - write POST query on server
 
 - style as possible with time remaining
+
+HTTP    ENGLISH                     SQL 
+------  -------                     ------
+
+GET     Get a list of songs         SELECT 
+POST    Create a new song           INSERT
+DELETE  Remove a song               DELETE
+PUT     Modify an exisitng song     UPDATE
+
+
+CRUD
+
+Create
+Read
+Update
+Delete
+
+
