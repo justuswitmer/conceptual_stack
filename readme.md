@@ -32,4 +32,11 @@ Read
 Update
 Delete
 
+Standard API endpionts
+GET /monkeys                List monkeys
+GET /monkeys/:id            Get a monkey by id
+POST /monkeys               Create a monkey
+PUT /monkeys/:id            Update a monkey by id
+DELETE /monkeys/:id         Delete a monkey by id
+
 
