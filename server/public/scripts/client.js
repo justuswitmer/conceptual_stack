@@ -5,7 +5,22 @@ function onReady() {
     console.log('jquery ready!!');
     getSongs();
     $("#addSongButton").on('click', addSongs);
+    $(document).on('click', '.deleteSongBtn', deleteSong);
 }
+
+function deleteSong() {
+    let songId = $(this).data('id');
+    $.ajax({
+        method: 'DELETE',
+        url: `/songs/${songId}`
+    }).then(function (response) {
+        console.log('Deleted!', response);
+
+    }).catch(function (err) {
+        console.log('error in delete', err);
+        alert("ruh-roh");
+    })
+} // end deleteSong
 
 function addSongs() {
     let objectToSend = {
@@ -29,8 +44,8 @@ function addSongs() {
 
 function getSongs() {
     $.ajax({
-        method: "GET",
-        url: "/songs"
+        method: 'GET',
+        url: '/songs'
     }).then(function (response) {
         console.log('back from GET with', response);
         let el = $('#songsOut');
@@ -40,7 +55,9 @@ function getSongs() {
             ${response[i].rank} |
             ${response[i].artist} ---
             ${response[i].track} ---
-            ${response[i].published.split('T')[0]}</li>
+            ${response[i].published.split('T')[0]}
+            <button class="deleteSongBtn" data-id="${response[i].id}">Delete Song</button>
+            </li>
             `);
         }
     }).catch(function (err) {
