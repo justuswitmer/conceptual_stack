@@ -15,12 +15,11 @@ function deleteSong() {
         url: `/songs/${songId}`
     }).then(function (response) {
         console.log('Deleted!', response);
-
+        getSongs();
     }).catch(function (err) {
         console.log('error in delete', err);
         alert("ruh-roh");
     })
-    getSongs();
 } // end deleteSong
 
 function addSongs() {
