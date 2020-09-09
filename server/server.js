@@ -56,6 +56,24 @@ app.post('/songs', (req, res) => {
     // rank: '4', artist: 'hi', track: 'd', published: '2020-09-24' }
 }) // end /songs POST
 
+app.delete('/songs/:id', (req, res) => {
+    // :id can be tacos, but make sure it matches req.params.tacos
+    console.log('in songs DELETE');
+    const queryString = `DELETE FROM "songs" WHERE "id" = $1;`;
+    // Grab the :id param from url
+    let songId = req.params.id; // make sure .id matches :id
+    console.log('Gonna delete song with id=', songId);
+    // DELETE FROM "songs" WHERE "id" = 4;
+    pool.query(queryString, [songId])
+        .then((response) => {
+            console.log('deleted!');
+            res.sendStatus(200);
+        }).catch((err) => {
+            console.log('error deleting record', err);
+            res.sendStatus(500);
+        })
+});
+
 /*
 npm install pg, then require it
 setup pool

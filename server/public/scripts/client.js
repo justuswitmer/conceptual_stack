@@ -20,6 +20,7 @@ function deleteSong() {
         console.log('error in delete', err);
         alert("ruh-roh");
     })
+    getSongs();
 } // end deleteSong
 
 function addSongs() {
