@@ -1,8 +1,8 @@
 Tarjan Full Stack Intor!
 ===
 
-- npm init, get init, usuals
--  add .gitignore
+- [] npm init, get init, usuals
+- [] add .gitignore
 
 - `npm install express pg`: "pg" is the package that will allow us to run SQL quries
 - set up our folders (server, public, etc.)
