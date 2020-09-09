@@ -42,5 +42,8 @@ app.get('/songs', (req, res) => {
 
 app.post('/songs', (req, res) => {
     console.log('in/songs post:', req.body);
+    // create query string
+    // ask pool to run our query string
+    // rank: '4', artist: 'hi', track: 'd', published: '2020-09-24' }
     res.send('chirp')
 }) // end /songs POST
