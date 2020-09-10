@@ -33,7 +33,10 @@ function moveSongDown() {
     console.log('rankDown', songId);
     $.ajax({
         method: 'PUT',
-        url: `/songs/${songId}`
+        url: `/songs/${songId}`,
+        data: {
+            direction: 'down'
+        }
     }).then(function (response) {
         console.log('moved down!', response);
         getSongs();
