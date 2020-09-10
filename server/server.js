@@ -92,6 +92,31 @@ app.delete('/songs/:id', (req, res) => {
         })
 });
 
+app.put('/songs/:id', (req, res) => {
+    console.log('in /songs PUT. params', req.params.id, req.body);
+    let direction = req.body.direction;
+    let songId = req.params.id;
+    let queryString = '';
+    if (direction === 'up') {
+        queryString = `UPDATE "songs" SET "rank" = "rank"+1 WHERE "id" = $1`;
+    }
+    else if (direction === 'down') {
+        queryString = `UPDATE "songs" SET "rank" = "rank"-1 WHERE "id" = $1`;
+    }
+    else {
+        console.log('send better data');
+
+    }
+    pool.query(queryString, [songId])
+        .then((result) => {
+            console.log('Result from PUT', result);
+            res.sendStatus(200);
+        }).catch((err) => {
+            console.log('error', err);
+            res.sendStatus(500);
+        })
+}); // end /songs PUT
+
 /*
 npm install pg, then require it
 setup pool
